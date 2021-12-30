@@ -5,3 +5,6 @@ glslang
 cups-dev
 colord-dev
 cups
+buildreq-gnome
+pygobject
+gobject-introspection
