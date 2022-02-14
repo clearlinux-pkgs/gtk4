@@ -1,7 +1,3 @@
-libgtk-4.so.1:_binary_gtk_gtk_gresource_size
-libgtk-4.so.1:_gtk_get_resource
-libgtk-4.so.1:_gtk_register_resource
-libgtk-4.so.1:_gtk_unregister_resource
 libgtk-4.so.1:gdk_anchor_hints_get_type
 libgtk-4.so.1:gdk_app_launch_context_get_display
 libgtk-4.so.1:gdk_app_launch_context_get_type
