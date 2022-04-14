@@ -1,9 +1,8 @@
 4.6.2
-docutils
 librsvg-dev
 pkgconfig(gstreamer-player-1.0)
 pkgconfig(iso-codes)
-pkgconfig(libjpeg)
 pkgconfig(librsvg-2.0)
 pkgconfig(libtiff-4)
 pkgconfig(wayland-protocols)
+pypi-docutils

@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.6.2
-Release  : 13
+Release  : 14
 URL      : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.2.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.2.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -23,13 +23,11 @@ BuildRequires : buildreq-meson
 BuildRequires : colord-dev
 BuildRequires : cups
 BuildRequires : cups-dev
-BuildRequires : docutils
 BuildRequires : glslang
 BuildRequires : gobject-introspection
 BuildRequires : librsvg-dev
 BuildRequires : pkgconfig(gstreamer-player-1.0)
 BuildRequires : pkgconfig(iso-codes)
-BuildRequires : pkgconfig(libjpeg)
 BuildRequires : pkgconfig(librsvg-2.0)
 BuildRequires : pkgconfig(libtiff-4)
 BuildRequires : pkgconfig(wayland-protocols)
@@ -42,6 +40,7 @@ BuildRequires : pypi(setuptools)
 BuildRequires : pypi(toml)
 BuildRequires : pypi(typogrify)
 BuildRequires : pypi(wheel)
+BuildRequires : pypi-docutils
 
 %description
 Summary
@@ -130,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647716478
+export SOURCE_DATE_EPOCH=1649966685
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
