@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.6.5
-Release  : 17
+Release  : 18
 URL      : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -129,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654016248
+export SOURCE_DATE_EPOCH=1656041587
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -169,7 +169,7 @@ DESTDIR=%{buildroot}-v3 ninja -C builddiravx2 install
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gtk40-properties
 %find_lang gtk40
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -608,12 +608,17 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1.600.5
+/usr/lib64/glibc-hwcaps/x86-64-v3/libmedia-gstreamer.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-cups.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-file.so
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
 /usr/lib64/libgtk-4.so.1.600.5
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
