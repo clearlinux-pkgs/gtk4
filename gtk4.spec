@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.6.5
-Release  : 18
+Release  : 19
 URL      : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -129,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656041587
+export SOURCE_DATE_EPOCH=1656123824
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -611,9 +611,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1.600.5
-/usr/lib64/glibc-hwcaps/x86-64-v3/libmedia-gstreamer.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-cups.so
-/usr/lib64/glibc-hwcaps/x86-64-v3/libprintbackend-file.so
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
