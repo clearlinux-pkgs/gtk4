@@ -1,5 +1,4 @@
-4.6.5
-gi-docgen
+4.6.6
 librsvg-dev
 pkgconfig(gstreamer-player-1.0)
 pkgconfig(iso-codes)
