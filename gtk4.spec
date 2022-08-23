@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.6.7
-Release  : 24
+Release  : 25
 URL      : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.7.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.6/gtk-4.6.7.tar.xz
 Summary  : Wayland protocol files
