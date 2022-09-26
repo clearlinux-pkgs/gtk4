@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.8.1
-Release  : 29
+Release  : 30
 URL      : https://download.gnome.org/sources/gtk/4.8/gtk-4.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.8/gtk-4.8.1.tar.xz
 Summary  : Wayland protocol files
@@ -126,7 +126,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663605088
+export SOURCE_DATE_EPOCH=1664155273
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
