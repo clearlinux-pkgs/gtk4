@@ -1,9 +1,0 @@
-4.8.2
-gi-docgen
-librsvg-dev
-pkgconfig(gstreamer-player-1.0)
-pkgconfig(iso-codes)
-pkgconfig(librsvg-2.0)
-pkgconfig(libtiff-4)
-pkgconfig(wayland-protocols)
-pypi-docutils
