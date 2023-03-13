@@ -4,7 +4,7 @@
 #
 Name     : gtk4
 Version  : 4.10.0
-Release  : 34
+Release  : 35
 URL      : https://download.gnome.org/sources/gtk/4.10/gtk-4.10.0.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.10/gtk-4.10.0.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -132,7 +132,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1678118283
+export SOURCE_DATE_EPOCH=1678724618
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -141,9 +141,9 @@ export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -f
 export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dintrospection=enabled  builddir
 ninja -v -C builddir
-CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain   builddiravx2
+CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dintrospection=enabled  builddiravx2
 ninja -v -C builddiravx2
 
 %check
@@ -193,6 +193,11 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files data
 %defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/Gdk-4.0.typelib
+/usr/lib64/girepository-1.0/GdkWayland-4.0.typelib
+/usr/lib64/girepository-1.0/GdkX11-4.0.typelib
+/usr/lib64/girepository-1.0/Gsk-4.0.typelib
+/usr/lib64/girepository-1.0/Gtk-4.0.typelib
 /usr/share/applications/org.gtk.Demo4.desktop
 /usr/share/applications/org.gtk.IconBrowser4.desktop
 /usr/share/applications/org.gtk.PrintEditor4.desktop
@@ -200,6 +205,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/applications/org.gtk.gtk4.NodeEditor.desktop
 /usr/share/gettext/its/gtk4builder.its
 /usr/share/gettext/its/gtk4builder.loc
+/usr/share/gir-1.0/*.gir
 /usr/share/glib-2.0/schemas/org.gtk.Demo4.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.gtk4.Settings.ColorChooser.gschema.xml
 /usr/share/glib-2.0/schemas/org.gtk.gtk4.Settings.Debug.gschema.xml
