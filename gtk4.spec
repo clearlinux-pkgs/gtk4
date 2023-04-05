@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : gtk4
-Version  : 4.10.1
-Release  : 37
-URL      : https://download.gnome.org/sources/gtk/4.10/gtk-4.10.1.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.10/gtk-4.10.1.tar.xz
+Version  : 4.11.1
+Release  : 38
+URL      : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
 Summary  : GObject-Introspection based documentation generator
 Group    : Development/Tools
 License  : Apache-2.0 CC-BY-SA-3.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 MIT MPL-1.1 OFL-1.1
@@ -114,10 +114,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.10.1
-cd %{_builddir}/gtk-4.10.1
+%setup -q -n gtk-4.11.1
+cd %{_builddir}/gtk-4.11.1
 pushd ..
-cp -a gtk-4.10.1 buildavx2
+cp -a gtk-4.11.1 buildavx2
 popd
 
 %build
@@ -125,7 +125,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680035153
+export SOURCE_DATE_EPOCH=1680717593
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -261,6 +261,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gdk/gdkdisplaymanager.h
 /usr/include/gtk-4.0/gdk/gdkdrag.h
 /usr/include/gtk-4.0/gdk/gdkdragsurface.h
+/usr/include/gtk-4.0/gdk/gdkdragsurfacesize.h
 /usr/include/gtk-4.0/gdk/gdkdrawcontext.h
 /usr/include/gtk-4.0/gdk/gdkdrop.h
 /usr/include/gtk-4.0/gdk/gdkenums.h
@@ -422,7 +423,9 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gtk/gtkcolordialogbutton.h
 /usr/include/gtk-4.0/gtk/gtkcolorutils.h
 /usr/include/gtk-4.0/gtk/gtkcolumnview.h
+/usr/include/gtk-4.0/gtk/gtkcolumnviewcell.h
 /usr/include/gtk-4.0/gtk/gtkcolumnviewcolumn.h
+/usr/include/gtk-4.0/gtk/gtkcolumnviewrow.h
 /usr/include/gtk-4.0/gtk/gtkcolumnviewsorter.h
 /usr/include/gtk-4.0/gtk/gtkconstraint.h
 /usr/include/gtk-4.0/gtk/gtkconstraintguide.h
@@ -623,12 +626,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1.1000.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1.1101.0
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1000.1
+/usr/lib64/libgtk-4.so.1.1101.0
 /usr/share/clear/optimized-elf/other*
 
 %files license
