@@ -5,7 +5,7 @@
 #
 Name     : gtk4
 Version  : 4.11.1
-Release  : 38
+Release  : 39
 URL      : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -13,7 +13,6 @@ Group    : Development/Tools
 License  : Apache-2.0 CC-BY-SA-3.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 MIT MPL-1.1 OFL-1.1
 Requires: gtk4-bin = %{version}-%{release}
 Requires: gtk4-data = %{version}-%{release}
-Requires: gtk4-filemap = %{version}-%{release}
 Requires: gtk4-lib = %{version}-%{release}
 Requires: gtk4-license = %{version}-%{release}
 Requires: gtk4-locales = %{version}-%{release}
@@ -51,7 +50,6 @@ Summary: bin components for the gtk4 package.
 Group: Binaries
 Requires: gtk4-data = %{version}-%{release}
 Requires: gtk4-license = %{version}-%{release}
-Requires: gtk4-filemap = %{version}-%{release}
 
 %description bin
 bin components for the gtk4 package.
@@ -78,20 +76,11 @@ Requires: gtk4 = %{version}-%{release}
 dev components for the gtk4 package.
 
 
-%package filemap
-Summary: filemap components for the gtk4 package.
-Group: Default
-
-%description filemap
-filemap components for the gtk4 package.
-
-
 %package lib
 Summary: lib components for the gtk4 package.
 Group: Libraries
 Requires: gtk4-data = %{version}-%{release}
 Requires: gtk4-license = %{version}-%{release}
-Requires: gtk4-filemap = %{version}-%{release}
 
 %description lib
 lib components for the gtk4 package.
@@ -125,15 +114,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680717593
+export SOURCE_DATE_EPOCH=1682980873
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dintrospection=enabled  builddir
 ninja -v -C builddir
 CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dintrospection=enabled  builddiravx2
@@ -171,6 +160,17 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/gtk4-builder-tool
+/V3/usr/bin/gtk4-demo
+/V3/usr/bin/gtk4-demo-application
+/V3/usr/bin/gtk4-encode-symbolic-svg
+/V3/usr/bin/gtk4-icon-browser
+/V3/usr/bin/gtk4-launch
+/V3/usr/bin/gtk4-node-editor
+/V3/usr/bin/gtk4-print-editor
+/V3/usr/bin/gtk4-query-settings
+/V3/usr/bin/gtk4-update-icon-cache
+/V3/usr/bin/gtk4-widget-factory
 /usr/bin/gtk4-builder-tool
 /usr/bin/gtk4-demo
 /usr/bin/gtk4-demo-application
@@ -182,7 +182,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/bin/gtk4-query-settings
 /usr/bin/gtk4-update-icon-cache
 /usr/bin/gtk4-widget-factory
-/usr/share/clear/optimized-elf/bin*
 
 %files data
 %defattr(-,root,root,-)
@@ -242,6 +241,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libgtk-4.so
 /usr/include/gtk-4.0/gdk/gdk.h
 /usr/include/gtk-4.0/gdk/gdkapplaunchcontext.h
 /usr/include/gtk-4.0/gdk/gdkcairo.h
@@ -612,27 +612,24 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/unix-print/gtk/gtkprintunixdialog.h
 /usr/include/gtk-4.0/unix-print/gtk/gtkunixprint-autocleanups.h
 /usr/include/gtk-4.0/unix-print/gtk/gtkunixprint.h
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so
 /usr/lib64/libgtk-4.so
 /usr/lib64/pkgconfig/gtk4-unix-print.pc
 /usr/lib64/pkgconfig/gtk4-wayland.pc
 /usr/lib64/pkgconfig/gtk4-x11.pc
 /usr/lib64/pkgconfig/gtk4.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-gtk4
-
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1
-/usr/lib64/glibc-hwcaps/x86-64-v3/libgtk-4.so.1.1101.0
+/V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
+/V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
+/V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
+/V3/usr/lib64/libgtk-4.so.1
+/V3/usr/lib64/libgtk-4.so.1.1101.0
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
 /usr/lib64/libgtk-4.so.1.1101.0
-/usr/share/clear/optimized-elf/other*
 
 %files license
 %defattr(0644,root,root,0755)
