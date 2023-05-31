@@ -5,7 +5,7 @@
 #
 Name     : gtk4
 Version  : 4.11.1
-Release  : 39
+Release  : 40
 URL      : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
 Summary  : GObject-Introspection based documentation generator
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682980873
+export SOURCE_DATE_EPOCH=1685550502
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -241,7 +241,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libgtk-4.so
 /usr/include/gtk-4.0/gdk/gdk.h
 /usr/include/gtk-4.0/gdk/gdkapplaunchcontext.h
 /usr/include/gtk-4.0/gdk/gdkcairo.h
@@ -623,7 +622,6 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1
 /V3/usr/lib64/libgtk-4.so.1.1101.0
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
