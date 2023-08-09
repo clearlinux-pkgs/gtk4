@@ -5,7 +5,7 @@
 #
 Name     : gtk4
 Version  : 4.12.0
-Release  : 43
+Release  : 44
 URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
 Summary  : No detailed summary available
@@ -36,6 +36,7 @@ BuildRequires : pypi-docutils
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
+Patch1: backport-6250-print-revert-start-sorting-apart-includes-change-for-gtkprinteroptionprivate-h.patch
 
 %description
 Summary
@@ -105,6 +106,7 @@ locales components for the gtk4 package.
 %prep
 %setup -q -n gtk-4.12.0
 cd %{_builddir}/gtk-4.12.0
+%patch -P 1 -p1
 pushd ..
 cp -a gtk-4.12.0 buildavx2
 popd
@@ -114,7 +116,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691604030
+export SOURCE_DATE_EPOCH=1691625037
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
