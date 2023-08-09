@@ -26,7 +26,7 @@ libpangocairo-1.0.so.0
 libpangoft2-1.0.so.0
 libpng16.so.16
 librsvg-2.so.2
-libtiff.so.5
+libtiff.so.6
 libwayland-client.so.0
 libwayland-egl.so.1
 libxkbcommon.so.0

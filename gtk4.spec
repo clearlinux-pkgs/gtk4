@@ -4,13 +4,13 @@
 # Using build pattern: meson
 #
 Name     : gtk4
-Version  : 4.11.1
-Release  : 42
-URL      : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.11/gtk-4.11.1.tar.xz
-Summary  : GObject-Introspection based documentation generator
+Version  : 4.12.0
+Release  : 43
+URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
+Summary  : No detailed summary available
 Group    : Development/Tools
-License  : Apache-2.0 CC-BY-SA-3.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-2.1 MIT MPL-1.1 OFL-1.1
+License  : Apache-2.0 LGPL-2.0 LGPL-2.1
 Requires: gtk4-bin = %{version}-%{release}
 Requires: gtk4-data = %{version}-%{release}
 Requires: gtk4-lib = %{version}-%{release}
@@ -103,10 +103,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.11.1
-cd %{_builddir}/gtk-4.11.1
+%setup -q -n gtk-4.12.0
+cd %{_builddir}/gtk-4.12.0
 pushd ..
-cp -a gtk-4.11.1 buildavx2
+cp -a gtk-4.12.0 buildavx2
 popd
 
 %build
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685550502
+export SOURCE_DATE_EPOCH=1691604030
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -141,15 +141,6 @@ cp %{_builddir}/gtk-%{version}/COPYING %{buildroot}/usr/share/package-licenses/g
 cp %{_builddir}/gtk-%{version}/gdk/COPYING %{buildroot}/usr/share/package-licenses/gtk4/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
 cp %{_builddir}/gtk-%{version}/gtk/roaring/COPYING %{buildroot}/usr/share/package-licenses/gtk4/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
 cp %{_builddir}/gtk-%{version}/gtk/timsort/COPYING %{buildroot}/usr/share/package-licenses/gtk4/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/gtk4/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/CC-BY-SA-3.0.txt %{buildroot}/usr/share/package-licenses/gtk4/fb41626a3005c2b6e14b8b3f5d9d0b19b5faaa51 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/gtk4/8287b608d3fa40ef401339fd907ca1260c964123 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/gtk4/3cb34cfc72e87654683f2894299adf912d14b284 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/gtk4/31a3d460bb3c7d98845187c716a30db81c44b615 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/gtk4/5c6c38fa1b6ac7c66252c83d1203e997ae3d1c98 || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/gtk4/220906dfcc3d3b7f4e18cf8a22454c628ca0ea2e || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/MPL-1.1.txt %{buildroot}/usr/share/package-licenses/gtk4/ca2fd1439eb3e23507f13855e5450c5d617db83d || :
-cp %{_builddir}/gtk-%{version}/subprojects/gi-docgen/LICENSES/OFL-1.1.txt %{buildroot}/usr/share/package-licenses/gtk4/8b8a351a8476e37a2c4d398eb1e6c8403f487ea4 || :
 DESTDIR=%{buildroot}-v3 ninja -C builddiravx2 install
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gtk40
@@ -169,6 +160,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/bin/gtk4-node-editor
 /V3/usr/bin/gtk4-print-editor
 /V3/usr/bin/gtk4-query-settings
+/V3/usr/bin/gtk4-rendernode-tool
 /V3/usr/bin/gtk4-update-icon-cache
 /V3/usr/bin/gtk4-widget-factory
 /usr/bin/gtk4-builder-tool
@@ -180,6 +172,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/bin/gtk4-node-editor
 /usr/bin/gtk4-print-editor
 /usr/bin/gtk4-query-settings
+/usr/bin/gtk4-rendernode-tool
 /usr/bin/gtk4-update-icon-cache
 /usr/bin/gtk4-widget-factory
 
@@ -241,6 +234,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files dev
 %defattr(-,root,root,-)
+/usr/include/gtk-4.0/gdk/deprecated/gdkpixbuf.h
 /usr/include/gtk-4.0/gdk/gdk.h
 /usr/include/gtk-4.0/gdk/gdkapplaunchcontext.h
 /usr/include/gtk-4.0/gdk/gdkcairo.h
@@ -270,13 +264,13 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gdk/gdkframetimings.h
 /usr/include/gtk-4.0/gdk/gdkglcontext.h
 /usr/include/gtk-4.0/gdk/gdkgltexture.h
+/usr/include/gtk-4.0/gdk/gdkgltexturebuilder.h
 /usr/include/gtk-4.0/gdk/gdkkeys.h
 /usr/include/gtk-4.0/gdk/gdkkeysyms.h
 /usr/include/gtk-4.0/gdk/gdkmemorytexture.h
 /usr/include/gtk-4.0/gdk/gdkmonitor.h
 /usr/include/gtk-4.0/gdk/gdkpaintable.h
 /usr/include/gtk-4.0/gdk/gdkpango.h
-/usr/include/gtk-4.0/gdk/gdkpixbuf.h
 /usr/include/gtk-4.0/gdk/gdkpopup.h
 /usr/include/gtk-4.0/gdk/gdkpopuplayout.h
 /usr/include/gtk-4.0/gdk/gdkrectangle.h
@@ -290,8 +284,9 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gdk/gdktoplevellayout.h
 /usr/include/gtk-4.0/gdk/gdktoplevelsize.h
 /usr/include/gtk-4.0/gdk/gdktypes.h
-/usr/include/gtk-4.0/gdk/gdkversionmacros.h
 /usr/include/gtk-4.0/gdk/gdkvulkancontext.h
+/usr/include/gtk-4.0/gdk/version/gdk-visibility.h
+/usr/include/gtk-4.0/gdk/version/gdkversionmacros.h
 /usr/include/gtk-4.0/gdk/wayland/gdkwayland.h
 /usr/include/gtk-4.0/gdk/wayland/gdkwaylanddevice.h
 /usr/include/gtk-4.0/gdk/wayland/gdkwaylanddisplay.h
@@ -498,6 +493,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gtk/gtklinkbutton.h
 /usr/include/gtk-4.0/gtk/gtklistbase.h
 /usr/include/gtk-4.0/gtk/gtklistbox.h
+/usr/include/gtk-4.0/gtk/gtklistheader.h
 /usr/include/gtk-4.0/gtk/gtklistitem.h
 /usr/include/gtk-4.0/gtk/gtklistitemfactory.h
 /usr/include/gtk-4.0/gtk/gtklistview.h
@@ -520,19 +516,13 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gtk/gtkoverlay.h
 /usr/include/gtk-4.0/gtk/gtkoverlaylayout.h
 /usr/include/gtk-4.0/gtk/gtkpadcontroller.h
-/usr/include/gtk-4.0/gtk/gtkpagesetup.h
 /usr/include/gtk-4.0/gtk/gtkpaned.h
-/usr/include/gtk-4.0/gtk/gtkpapersize.h
 /usr/include/gtk-4.0/gtk/gtkpasswordentry.h
 /usr/include/gtk-4.0/gtk/gtkpasswordentrybuffer.h
 /usr/include/gtk-4.0/gtk/gtkpicture.h
 /usr/include/gtk-4.0/gtk/gtkpopover.h
 /usr/include/gtk-4.0/gtk/gtkpopovermenu.h
 /usr/include/gtk-4.0/gtk/gtkpopovermenubar.h
-/usr/include/gtk-4.0/gtk/gtkprintcontext.h
-/usr/include/gtk-4.0/gtk/gtkprintoperation.h
-/usr/include/gtk-4.0/gtk/gtkprintoperationpreview.h
-/usr/include/gtk-4.0/gtk/gtkprintsettings.h
 /usr/include/gtk-4.0/gtk/gtkprogressbar.h
 /usr/include/gtk-4.0/gtk/gtkrange.h
 /usr/include/gtk-4.0/gtk/gtkrecentmanager.h
@@ -543,8 +533,10 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gtk/gtkscrollable.h
 /usr/include/gtk-4.0/gtk/gtkscrollbar.h
 /usr/include/gtk-4.0/gtk/gtkscrolledwindow.h
+/usr/include/gtk-4.0/gtk/gtkscrollinfo.h
 /usr/include/gtk-4.0/gtk/gtksearchbar.h
 /usr/include/gtk-4.0/gtk/gtksearchentry.h
+/usr/include/gtk-4.0/gtk/gtksectionmodel.h
 /usr/include/gtk-4.0/gtk/gtkselectionfiltermodel.h
 /usr/include/gtk-4.0/gtk/gtkselectionmodel.h
 /usr/include/gtk-4.0/gtk/gtkseparator.h
@@ -605,12 +597,17 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gtk/gtkwindowcontrols.h
 /usr/include/gtk-4.0/gtk/gtkwindowgroup.h
 /usr/include/gtk-4.0/gtk/gtkwindowhandle.h
-/usr/include/gtk-4.0/unix-print/gtk/gtkpagesetupunixdialog.h
-/usr/include/gtk-4.0/unix-print/gtk/gtkprinter.h
-/usr/include/gtk-4.0/unix-print/gtk/gtkprintjob.h
-/usr/include/gtk-4.0/unix-print/gtk/gtkprintunixdialog.h
-/usr/include/gtk-4.0/unix-print/gtk/gtkunixprint-autocleanups.h
+/usr/include/gtk-4.0/gtk/print/gtkpagesetup.h
+/usr/include/gtk-4.0/gtk/print/gtkpapersize.h
+/usr/include/gtk-4.0/gtk/print/gtkprintcontext.h
+/usr/include/gtk-4.0/gtk/print/gtkprintoperation.h
+/usr/include/gtk-4.0/gtk/print/gtkprintoperationpreview.h
+/usr/include/gtk-4.0/gtk/print/gtkprintsettings.h
 /usr/include/gtk-4.0/unix-print/gtk/gtkunixprint.h
+/usr/include/gtk-4.0/unix-print/gtk/print/gtkpagesetupunixdialog.h
+/usr/include/gtk-4.0/unix-print/gtk/print/gtkprinter.h
+/usr/include/gtk-4.0/unix-print/gtk/print/gtkprintjob.h
+/usr/include/gtk-4.0/unix-print/gtk/print/gtkprintunixdialog.h
 /usr/lib64/libgtk-4.so
 /usr/lib64/pkgconfig/gtk4-unix-print.pc
 /usr/lib64/pkgconfig/gtk4-wayland.pc
@@ -622,26 +619,18 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1.1101.0
+/V3/usr/lib64/libgtk-4.so.1.1200.0
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1101.0
+/usr/lib64/libgtk-4.so.1.1200.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/gtk4/01a6b4bf79aca9b556822601186afab86e8c4fbf
-/usr/share/package-licenses/gtk4/220906dfcc3d3b7f4e18cf8a22454c628ca0ea2e
 /usr/share/package-licenses/gtk4/2b8b815229aa8a61e483fb4ba0588b8b6c491890
-/usr/share/package-licenses/gtk4/31a3d460bb3c7d98845187c716a30db81c44b615
-/usr/share/package-licenses/gtk4/3cb34cfc72e87654683f2894299adf912d14b284
-/usr/share/package-licenses/gtk4/5c6c38fa1b6ac7c66252c83d1203e997ae3d1c98
-/usr/share/package-licenses/gtk4/8287b608d3fa40ef401339fd907ca1260c964123
-/usr/share/package-licenses/gtk4/8b8a351a8476e37a2c4d398eb1e6c8403f487ea4
 /usr/share/package-licenses/gtk4/ba8966e2473a9969bdcab3dc82274c817cfd98a1
-/usr/share/package-licenses/gtk4/ca2fd1439eb3e23507f13855e5450c5d617db83d
-/usr/share/package-licenses/gtk4/fb41626a3005c2b6e14b8b3f5d9d0b19b5faaa51
 
 %files locales -f gtk40.lang
 %defattr(-,root,root,-)
