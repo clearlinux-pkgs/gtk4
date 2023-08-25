@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : gtk4
-Version  : 4.12.0
-Release  : 44
-URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.0.tar.xz
+Version  : 4.12.1
+Release  : 45
+URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 LGPL-2.0 LGPL-2.1
@@ -36,7 +36,6 @@ BuildRequires : pypi-docutils
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: backport-6250-print-revert-start-sorting-apart-includes-change-for-gtkprinteroptionprivate-h.patch
 
 %description
 Summary
@@ -104,11 +103,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.12.0
-cd %{_builddir}/gtk-4.12.0
-%patch -P 1 -p1
+%setup -q -n gtk-4.12.1
+cd %{_builddir}/gtk-4.12.1
 pushd ..
-cp -a gtk-4.12.0 buildavx2
+cp -a gtk-4.12.1 buildavx2
 popd
 
 %build
@@ -116,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691625037
+export SOURCE_DATE_EPOCH=1692977047
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -621,12 +619,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1.1200.0
+/V3/usr/lib64/libgtk-4.so.1.1200.1
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1200.0
+/usr/lib64/libgtk-4.so.1.1200.1
 
 %files license
 %defattr(0644,root,root,0755)
