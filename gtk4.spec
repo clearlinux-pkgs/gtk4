@@ -5,7 +5,7 @@
 #
 Name     : gtk4
 Version  : 4.12.1
-Release  : 45
+Release  : 46
 URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
 Summary  : No detailed summary available
