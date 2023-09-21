@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : gtk4
-Version  : 4.12.1
-Release  : 46
-URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.1.tar.xz
+Version  : 4.12.2
+Release  : 47
+URL      : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.2.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.12/gtk-4.12.2.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 LGPL-2.0 LGPL-2.1
@@ -103,10 +103,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.12.1
-cd %{_builddir}/gtk-4.12.1
+%setup -q -n gtk-4.12.2
+cd %{_builddir}/gtk-4.12.2
 pushd ..
-cp -a gtk-4.12.1 buildavx2
+cp -a gtk-4.12.2 buildavx2
 popd
 
 %build
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692977047
+export SOURCE_DATE_EPOCH=1695311031
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -619,12 +619,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1.1200.1
+/V3/usr/lib64/libgtk-4.so.1.1200.2
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1200.1
+/usr/lib64/libgtk-4.so.1.1200.2
 
 %files license
 %defattr(0644,root,root,0755)
