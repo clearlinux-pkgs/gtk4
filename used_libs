@@ -8,12 +8,14 @@ libcups.so.2
 libepoxy.so.0
 libfontconfig.so.1
 libfribidi.so.0
+libgcc_s.so.1
 libgdk_pixbuf-2.0.so.0
 libgio-2.0.so.0
 libglib-2.0.so.0
 libgmodule-2.0.so.0
 libgobject-2.0.so.0
 libgraphene-1.0.so.0
+libgstallocators-1.0.so.0
 libgstgl-1.0.so.0
 libgstplayer-1.0.so.0
 libgstreamer-1.0.so.0
@@ -27,6 +29,7 @@ libpangoft2-1.0.so.0
 libpng16.so.16
 librsvg-2.so.2
 libtiff.so.6
+libvulkan.so.1
 libwayland-client.so.0
 libwayland-egl.so.1
 libxkbcommon.so.0

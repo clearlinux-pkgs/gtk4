@@ -8,3 +8,5 @@ cups
 buildreq-gnome
 pygobject
 gobject-introspection
+shaderc
+shaderc-dev
