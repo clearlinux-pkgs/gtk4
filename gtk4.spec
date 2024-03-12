@@ -7,7 +7,7 @@
 #
 Name     : gtk4
 Version  : 4.14.0
-Release  : 51
+Release  : 52
 URL      : https://download.gnome.org/sources/gtk/4.14/gtk-4.14.0.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.14/gtk-4.14.0.tar.xz
 Summary  : No detailed summary available
