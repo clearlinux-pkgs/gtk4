@@ -1,10 +1,9 @@
-4.14.5
+4.16.0
 Vulkan-Headers-dev
 gi-docgen
 librsvg-dev
 pkgconfig(gstreamer-player-1.0)
 pkgconfig(iso-codes)
-pkgconfig(libdrm)
 pkgconfig(librsvg-2.0)
 pkgconfig(libtiff-4)
 pkgconfig(wayland-protocols)

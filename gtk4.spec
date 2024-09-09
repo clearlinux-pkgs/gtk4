@@ -6,10 +6,10 @@
 # autospec commit: f35655a
 #
 Name     : gtk4
-Version  : 4.14.5
-Release  : 57
-URL      : https://download.gnome.org/sources/gtk/4.14/gtk-4.14.5.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.14/gtk-4.14.5.tar.xz
+Version  : 4.16.0
+Release  : 58
+URL      : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.0.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 LGPL-2.0 LGPL-2.1
@@ -31,7 +31,6 @@ BuildRequires : gobject-introspection
 BuildRequires : librsvg-dev
 BuildRequires : pkgconfig(gstreamer-player-1.0)
 BuildRequires : pkgconfig(iso-codes)
-BuildRequires : pkgconfig(libdrm)
 BuildRequires : pkgconfig(librsvg-2.0)
 BuildRequires : pkgconfig(libtiff-4)
 BuildRequires : pkgconfig(wayland-protocols)
@@ -107,10 +106,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.14.5
-cd %{_builddir}/gtk-4.14.5
+%setup -q -n gtk-4.16.0
+cd %{_builddir}/gtk-4.16.0
 pushd ..
-cp -a gtk-4.14.5 buildavx2
+cp -a gtk-4.16.0 buildavx2
 popd
 
 %build
@@ -118,7 +117,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1723845400
+export SOURCE_DATE_EPOCH=1725909359
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -187,6 +186,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/bin/gtk4-demo-application
 /V3/usr/bin/gtk4-encode-symbolic-svg
 /V3/usr/bin/gtk4-icon-browser
+/V3/usr/bin/gtk4-image-tool
 /V3/usr/bin/gtk4-launch
 /V3/usr/bin/gtk4-node-editor
 /V3/usr/bin/gtk4-path-tool
@@ -200,6 +200,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/bin/gtk4-demo-application
 /usr/bin/gtk4-encode-symbolic-svg
 /usr/bin/gtk4-icon-browser
+/usr/bin/gtk4-image-tool
 /usr/bin/gtk4-launch
 /usr/bin/gtk4-node-editor
 /usr/bin/gtk4-path-tool
@@ -279,7 +280,9 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gdk/gdkapplaunchcontext.h
 /usr/include/gtk-4.0/gdk/gdkcairo.h
 /usr/include/gtk-4.0/gdk/gdkcairocontext.h
+/usr/include/gtk-4.0/gdk/gdkcicpparams.h
 /usr/include/gtk-4.0/gdk/gdkclipboard.h
+/usr/include/gtk-4.0/gdk/gdkcolorstate.h
 /usr/include/gtk-4.0/gdk/gdkconfig.h
 /usr/include/gtk-4.0/gdk/gdkcontentdeserializer.h
 /usr/include/gtk-4.0/gdk/gdkcontentformats.h
@@ -311,6 +314,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/include/gtk-4.0/gdk/gdkkeys.h
 /usr/include/gtk-4.0/gdk/gdkkeysyms.h
 /usr/include/gtk-4.0/gdk/gdkmemorytexture.h
+/usr/include/gtk-4.0/gdk/gdkmemorytexturebuilder.h
 /usr/include/gtk-4.0/gdk/gdkmonitor.h
 /usr/include/gtk-4.0/gdk/gdkpaintable.h
 /usr/include/gtk-4.0/gdk/gdkpango.h
@@ -675,12 +679,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1.1400.5
+/V3/usr/lib64/libgtk-4.so.1.1600.0
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1400.5
+/usr/lib64/libgtk-4.so.1.1600.0
 
 %files license
 %defattr(0644,root,root,0755)
