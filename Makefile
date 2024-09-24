@@ -1,5 +1,5 @@
 PKG_NAME := gtk4
-URL = https://download.gnome.org/sources/gtk/4.16/gtk-4.16.1.tar.xz
+URL = https://download.gnome.org/sources/gtk/4.16/gtk-4.16.2.tar.xz
 ARCHIVES = 
 
 include ../common/Makefile.common
