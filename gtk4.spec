@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : gtk4
-Version  : 4.16.6
-Release  : 64
-URL      : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.6.tar.xz
-Source0  : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.6.tar.xz
+Version  : 4.16.7
+Release  : 65
+URL      : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.7.tar.xz
+Source0  : https://download.gnome.org/sources/gtk/4.16/gtk-4.16.7.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 LGPL-2.0 LGPL-2.1
@@ -106,10 +106,10 @@ locales components for the gtk4 package.
 
 
 %prep
-%setup -q -n gtk-4.16.6
-cd %{_builddir}/gtk-4.16.6
+%setup -q -n gtk-4.16.7
+cd %{_builddir}/gtk-4.16.7
 pushd ..
-cp -a gtk-4.16.6 buildavx2
+cp -a gtk-4.16.7 buildavx2
 popd
 
 %build
@@ -117,7 +117,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1732204475
+export SOURCE_DATE_EPOCH=1732563241
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -679,12 +679,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /V3/usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /V3/usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
-/V3/usr/lib64/libgtk-4.so.1.1600.6
+/V3/usr/lib64/libgtk-4.so.1.1600.7
 /usr/lib64/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
 /usr/lib64/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
 /usr/lib64/libgtk-4.so.1
-/usr/lib64/libgtk-4.so.1.1600.6
+/usr/lib64/libgtk-4.so.1.1600.7
 
 %files license
 %defattr(0644,root,root,0755)
