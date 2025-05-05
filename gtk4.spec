@@ -7,7 +7,7 @@
 #
 Name     : gtk4
 Version  : 4.18.5
-Release  : 70
+Release  : 71
 URL      : https://download.gnome.org/sources/gtk/4.18/gtk-4.18.5.tar.xz
 Source0  : https://download.gnome.org/sources/gtk/4.18/gtk-4.18.5.tar.xz
 Summary  : No detailed summary available
